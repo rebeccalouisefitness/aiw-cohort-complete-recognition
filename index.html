@@ -200,8 +200,8 @@ body.sharemode{padding:0;background:#FBF8F3;overflow:hidden}
 
 <div class="sec">2 · For social media (no confetti)<small>The same card on the cream background with plenty of space around it, and a small AI Wellness Collective mark at the bottom. These are real images at full size. Tap one to download it.</small></div>
 <div class="shares">
-  <div class="col"><div class="cap">Story · 1080 × 1920 (9:16)</div><a href="share-story-simona.png" download><img class="shv" src="share-story-simona.png?v=v4" width="270" height="480" alt="Graduation card, Story size"></a><a class="dl" href="share-story-simona.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Download Story PNG</a></div>
-  <div class="col"><div class="cap">Post · 1080 × 1350 (4:5)</div><a href="share-post-simona.png" download><img class="shv" src="share-post-simona.png?v=v4" width="384" height="480" alt="Graduation card, post size"></a><a class="dl" href="share-post-simona.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Download post PNG</a></div>
+  <div class="col"><div class="cap">Story · 1080 × 1920 (9:16)</div><a href="share-story-simona.png" download><img class="shv" src="share-story-simona.png?v=v5" width="270" height="480" alt="Graduation card, Story size"></a><a class="dl" href="share-story-simona.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Download Story PNG</a></div>
+  <div class="col"><div class="cap">Post · 1080 × 1350 (4:5)</div><a href="share-post-simona.png" download><img class="shv" src="share-post-simona.png?v=v5" width="384" height="480" alt="Graduation card, post size"></a><a class="dl" href="share-post-simona.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Download post PNG</a></div>
 </div>
 
 <div class="sec">3 · On the coach's view of a team member<small>The real team-member page (Team, then tap the person). When all six weeks are done, a preview of the card and a <b>Save &amp; share graduation card</b> button sit under "Cohort · Completed". The button uses the forest outline style, to match the white cards on this page. Tapping it opens the phone's normal share sheet.</small></div>
@@ -264,7 +264,7 @@ function week(n,w){return '<div class="wk"><div class="hero">'+conf(11)+'<div cl
 function grad(n,o={}){
  return '<div class="wk g'+(o.share?' share':'')+(o.hl?' hl':'')+'"><div class="gstrip"></div><div class="hero">'+(o.share?'':conf(23,null,280))+
   '<div class="hi">'+CAP(36)+'<span class="badge"><img src="'+MONO_LIGHT+'" alt="WC"></span></div>'+
-  '<div class="k">COHORT ONE · GRADUATE</div>'+
+  '<div class="k">AI WELLNESS COLLECTIVE<br>COHORT ONE GRADUATE</div>'+
   '<div class="t">Congratulations <b>'+n+'</b>, you’ve graduated from the AI Wellness Collective</div>'+
   '<div class="from"><img src="'+MONO_DARK+'" alt="">AI Wellness Collective</div>'+
   '</div>'+(o.share?'':foot(o.l??21,o.c??6))+'</div>'}
@@ -320,8 +320,7 @@ const Q=new URLSearchParams(location.search), SH=Q.get('share');
 if(SH==='story'||SH==='post'){
  const n=Q.get('n')||'Simona', H=SH==='story'?1920:1350;
  document.body.className='sharemode';document.getElementById('page').remove();
- document.getElementById('share').innerHTML='<div class="canvas" style="height:'+H+'px"><div class="cardwrap"'+(SH==='story'?' style="margin-top:-60px"':'')+'>'+grad(n,{share:true})+'</div>'+
-  '<div class="wm" style="bottom:'+(SH==='story'?300:96)+'px"><img src="'+MONO_DARK+'" alt="">AI Wellness Collective</div></div>';
+ document.getElementById('share').innerHTML='<div class="canvas" style="height:'+H+'px"><div class="cardwrap"'+(SH==='story'?' style="margin-top:-60px"':'')+'>'+grad(n,{share:true})+'</div>'+'</div>'; /* v5: bottom 'AI Wellness Collective' mark removed (it repeated the card) */
 }else{render()}
 </script>
 </body></html>
